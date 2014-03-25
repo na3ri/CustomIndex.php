@@ -1,0 +1,18 @@
+<?php get_header(); ?>
+
+<section id="webtjcontent">
+  <?php $recent = new WP_Query("cat=-335&showposts=2&cat=-335"); while($recent->have_posts()) : $recent->the_post();?>
+  <?php $date_post=get_the_time('m/j'); ?>
+  <div class="webtjpost">
+    <h2><a href="<?php the_permalink() ?>"  title="<?php the_title(); ?>">
+      <?php the_title(); ?>
+      </a></h2>
+    <div class="webtjentry">
+      <?php the_content(__('Read the rest of this entry &raquo;','stylesheet')); ?>
+    </div>
+  </div>
+  <?php endwhile; ?>
+</section>
+
+
+<?php get_footer(); ?>
